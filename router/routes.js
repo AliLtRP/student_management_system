@@ -1,9 +1,14 @@
+// express is a node js framework
+// router is for url endpoints 
 const express = require('express');
 const router = express.Router();
+
+// import all functions from controller
 const { allTeachers, allSubjects, allAcademies, insertAcademe, insertStudent, insertTeacher } = require('../controller/studentController');
 
 
 
+// GET that return all data in the database
 router.get('/', async function(req, res) {
     
     const data = {
@@ -17,6 +22,7 @@ router.get('/', async function(req, res) {
 });
 
 
+// POST to add new teacher 
 router.post('/teacher', async function(req, res) {
     const teacher = req.body
     
@@ -30,6 +36,7 @@ router.post('/teacher', async function(req, res) {
 });
 
 
+// POST for adding new subjects
 router.post('/subject', async function(req, res) {
     
     const subject = req.body
@@ -45,6 +52,7 @@ router.post('/subject', async function(req, res) {
 });
 
 
+// for adding new academu
 router.post('/academy', async function(req, res) {
     
     const academy = req.body
@@ -61,6 +69,7 @@ router.post('/academy', async function(req, res) {
 
 
 
+// export router
 module.exports = {
     router
 }
